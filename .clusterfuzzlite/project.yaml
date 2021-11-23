@@ -1,0 +1,9 @@
+homepage: https://sigstore.dev/
+language: go 
+primary_contact: "naveensrinivasan@protonmail.com"
+main_repo: "https://github.com/sigstore/sigstore"
+fuzzing_engines:
+  - libfuzzer
+sanitizers:
+  - address
+language: go

@@ -29,7 +29,7 @@ $(GENSRC):
 
 
 $(GO-FUZZ-BUILD): $(FUZZ_DIR)/go.mod
-	cd $(FUZZ_DIR);go build -trimpath -tags=tools -o $(FUZZ_BIN_DIR)/go-fuzz-build github.com/dvyukov/go-fuzz/go-fuzz-build
+	cd $(FUZZ_DIR);go build -trimpath -tags=tools -o $(FUZZ_BIN_DIR)/go-fuzz-build github.com/dvyukov/go-fuzz/go-fuzz-build 
 
 lint:
 	$(GOBIN)/golangci-lint run -v --new-from-rev=HEAD~  ./...
@@ -48,4 +48,7 @@ clean:
 	rm $(FUZZ_DIR)/*fuzz.zip
 
 fuzz: $(GO-FUZZ-BUILD)
-	cd $(FUZZ_DIR);$(GO-FUZZ-BUILD) ./...
+	cd $(FUZZ_DIR);$(GO-FUZZ-BUILD) -libfuzzer  ./...
+
+fuzz-libfuzz: fuzz
+	cd $(FUZZ_DIR);clang -fsanitize=fuzzer reflect-fuzz.a -o fmt.libfuzzer
