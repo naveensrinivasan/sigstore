@@ -45,6 +45,7 @@ test-e2e: ## Run E2E Tests
 fuzz: $(GO-FUZZ-BUILD) ## Run Fuzz tests
 	cd $(FUZZ_DIR);$(GO-FUZZ-BUILD) -o pem-fuzz.zip ./pem 
 	cd $(FUZZ_DIR);$(GO-FUZZ-BUILD) -o signature-fuzz.zip ./signature
+	cd $(FUZZ_DIR);$(GO-FUZZ-BUILD) -o payload-fuzz.zip ./payload
 	cd $(FUZZ_DIR);$(GO-FUZZ-BUILD) -o fuzz-fuzz.zip . 
 	#The fuzzing is going to be next to pkg and not in the fuzz directory because the dependecies
 	#required to build is almost copy of the dsse. This is to avoid duplication.
