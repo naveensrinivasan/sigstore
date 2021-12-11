@@ -18,6 +18,7 @@ import (
 	"bytes"
 	"crypto/x509"
 	"errors"
+	"io/ioutil"
 	"testing"
 	"time"
 
@@ -106,6 +107,10 @@ func assertCertsEqual(t *testing.T, wanted, got []*x509.Certificate) {
 }
 
 func TestCertificatesFromPEM(t *testing.T) {
+	loadcert := func(file string) []byte {
+		b, _ := ioutil.ReadFile(file)
+		return b
+	}
 	testCases := []struct {
 		name     string
 		pemBytes []byte
@@ -136,6 +141,11 @@ func TestCertificatesFromPEM(t *testing.T) {
 
 			expectErr: true,
 		},
+		{
+			name:      "large one",
+			pemBytes:  loadcert("testdata/0.pem"),
+			expectErr: true,
+		},
 	}
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
@@ -161,7 +171,6 @@ func TestCertificatesFromPEM(t *testing.T) {
 				}
 				assertCertsEqual(t, tc.expected, got)
 			})
-
 		})
 	}
 }
@@ -304,4 +313,13 @@ func TestCheckExpiration(t *testing.T) {
 			}
 		})
 	}
+}
+
+func BenchmarkUnmarshalCert(t *testing.B) {
+	loadcert := func(file string) []byte {
+		b, _ := ioutil.ReadFile(file)
+		return b
+	}
+	bytes := loadcert("testdata/0.pem")
+	UnmarshalCertificatesFromPEM(bytes)
 }
