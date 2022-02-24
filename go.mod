@@ -15,7 +15,7 @@ require (
 	github.com/Azure/go-autorest/autorest/validation v0.3.1 // indirect
 	github.com/ReneKroon/ttlcache/v2 v2.11.0
 	github.com/armon/go-metrics v0.3.10 // indirect
-	github.com/aws/aws-sdk-go v1.42.25
+	github.com/aws/aws-sdk-go v1.43.5
 	github.com/cenkalti/backoff/v3 v3.2.2 // indirect
 	github.com/census-instrumentation/opencensus-proto v0.3.0 // indirect
 	github.com/cespare/xxhash/v2 v2.1.2 // indirect
@@ -53,7 +53,6 @@ require (
 	github.com/theupdateframework/go-tuf v0.0.0-20211203210025-7ded50136bf9
 	golang.org/x/crypto v0.0.0-20211202192323-5770296d904e
 	golang.org/x/oauth2 v0.0.0-20211104180415-d3ed0bb246c8
-	golang.org/x/sys v0.0.0-20211205182925-97ca703d548d // indirect
 	golang.org/x/term v0.0.0-20210927222741-03fcf44c2211
 	golang.org/x/time v0.0.0-20211116232009-f0f3c7e86c11 // indirect
 	google.golang.org/genproto v0.0.0-20211207154714-918901c715cf
