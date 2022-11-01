@@ -16,7 +16,7 @@ require (
 	github.com/go-test/deep v1.0.8
 	github.com/google/go-cmp v0.5.9
 	github.com/google/go-containerregistry v0.11.0
-	github.com/hashicorp/vault/api v1.8.1
+	github.com/hashicorp/vault/api v1.8.2
 	github.com/jellydator/ttlcache/v2 v2.11.1
 	github.com/letsencrypt/boulder v0.0.0-20220929215747-76583552c2be
 	github.com/mitchellh/go-homedir v1.1.0
@@ -109,7 +109,7 @@ require (
 	golang.org/x/net v0.0.0-20220927171203-f486391704dc // indirect
 	golang.org/x/sync v0.0.0-20220929204114-8fcdb60fdcc0 // indirect
 	golang.org/x/sys v0.0.0-20220928140112-f11e5e49a4ec // indirect
-	golang.org/x/text v0.3.7 // indirect
+	golang.org/x/text v0.3.8 // indirect
 	golang.org/x/time v0.0.0-20220922220347-f3bd1da661af // indirect
 	google.golang.org/appengine v1.6.7 // indirect
 	google.golang.org/grpc v1.49.0 // indirect
